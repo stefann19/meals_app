@@ -8,7 +8,7 @@ class CategoryItem extends StatelessWidget {
 
 
   selectCategory(BuildContext context) {
-    Navigator.of(context).pushNamed('/category-meals',arguments: {'category':category});
+    Navigator.of(context).pushNamed(CategoryMealsPage.routeName,arguments: {'category':category});
   }
   @override
   Widget build(BuildContext context) {

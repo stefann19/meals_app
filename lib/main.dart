@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const CategoriesPage(),
       routes: {
-        '/category-meals': (ctx) => CategoryMealsPage()
+        CategoryMealsPage.routeName: (ctx) => CategoryMealsPage()
       }
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:max_guides/models/category.dart';
 
 class CategoryMealsPage extends StatelessWidget {
+  static const String routeName = "/category-meals";
   const CategoryMealsPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
