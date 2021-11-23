@@ -15,6 +15,7 @@ class CategoriesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Appbar title placeholder in categories page'),),
       body: GridView(
+          padding: const EdgeInsets.all(32),
           children: DUMMY_CATEGORIES.map((categoryData) => CategoryItem(category: categoryData)).toList(),
           gridDelegate: gridDelegate
       ),
