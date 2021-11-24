@@ -1,4 +1,16 @@
 
+extension ParseMealComplexityToString on MealComplexity {
+  String toShortString() {
+    return this.toString().split('.').last;
+  }
+}
+
+extension ParseAffordabilityToString on Affordability {
+  String toShortString() {
+    return this.toString().split('.').last;
+  }
+}
+
 enum MealComplexity {
   Simple,
   Challenging,

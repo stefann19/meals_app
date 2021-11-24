@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:max_guides/models/category.dart';
-import 'dummy_data.dart';
+import 'package:max_guides/widgets/meal_item.dart';
+import '../models/dummy_data.dart';
 class CategoryMealsPage extends StatelessWidget {
   static const String routeName = "/category-meals";
   const CategoryMealsPage({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class CategoryMealsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(category.title),),
       body: ListView.builder(itemBuilder: (ctx,index){
-        return Text(mealsForCurrentCategory[index].title);
+        return MealItem(meal: mealsForCurrentCategory[index]);
       },itemCount: mealsForCurrentCategory.length,),
     );
   }

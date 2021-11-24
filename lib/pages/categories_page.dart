@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:max_guides/category_item.dart';
-import 'package:max_guides/dummy_data.dart';
+import 'package:max_guides/widgets/category_item.dart';
+import 'package:max_guides/models/dummy_data.dart';
 
 class CategoriesPage extends StatelessWidget {
   const CategoriesPage({Key? key}) : super(key: key);

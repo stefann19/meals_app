@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:max_guides/categories_page.dart';
-import 'package:max_guides/category_meals_page.dart';
+import 'package:max_guides/pages/categories_page.dart';
+import 'package:max_guides/pages/category_meals_page.dart';
 
 void main() =>runApp(const MyApp());
 

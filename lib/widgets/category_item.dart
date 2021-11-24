@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:max_guides/category_meals_page.dart';
+import 'package:max_guides/pages/category_meals_page.dart';
 import 'package:max_guides/models/category.dart';
 
 class CategoryItem extends StatelessWidget {
