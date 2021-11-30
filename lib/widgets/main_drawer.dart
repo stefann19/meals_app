@@ -32,8 +32,8 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20,),
-          buildItem('Meals',Icons.restaurant, () => { Navigator.of(context).pushNamed('/')}),
-          buildItem('Filters',Icons.settings, () => { Navigator.of(context).pushNamed(FiltersPage.routeName)}),
+          buildItem('Meals',Icons.restaurant, () => { Navigator.of(context).pushReplacementNamed('/')}),
+          buildItem('Filters',Icons.settings, () => { Navigator.of(context).pushReplacementNamed(FiltersPage.routeName)}),
         ],
       ),
     );
