@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:max_guides/pages/categories_page.dart';
 import 'package:max_guides/pages/category_meals_page.dart';
+import 'package:max_guides/pages/filters_page.dart';
 import 'package:max_guides/pages/meal_detail_page.dart';
 import 'package:max_guides/pages/tabs_page.dart';
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/': (ctx)=> TabsPage(),
         CategoryMealsPage.routeName: (ctx) => CategoryMealsPage(),
         MealDetailPage.routeName: (ctx)=> MealDetailPage(),
+        FiltersPage.routeName: (ctx) => FiltersPage()
       }
     );
   }
