@@ -25,6 +25,21 @@ class _MyAppState extends State<MyApp> {
     'vegetarian': false
   };
   List<Meal> availableMeals = DUMMY_MEALS;
+  List<Meal> favoriteMeals = [];
+
+  bool _isMealFavorite(Meal meal){
+    return favoriteMeals.contains(meal);
+  }
+
+  void _toggleFavorite(Meal meal){
+    setState(() {
+      if(favoriteMeals.contains(meal)){
+        favoriteMeals.remove(meal);
+      }else{
+        favoriteMeals.add(meal);
+      }
+    });
+  }
 
   void setFilters(Map<String, bool> filters) {
     setState(() {
@@ -38,6 +53,7 @@ class _MyAppState extends State<MyApp> {
       }).toList();
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +73,9 @@ class _MyAppState extends State<MyApp> {
                   fontWeight: FontWeight.bold)),
         ),
         routes: {
-          '/': (ctx) => TabsPage(),
+          '/': (ctx) => TabsPage(favoriteMeals: favoriteMeals),
           CategoryMealsPage.routeName: (ctx) => CategoryMealsPage(availableMeals: availableMeals),
-          MealDetailPage.routeName: (ctx) => MealDetailPage(),
+          MealDetailPage.routeName: (ctx) => MealDetailPage(toggleFavorite: _toggleFavorite,isMealFavorite:_isMealFavorite),
           FiltersPage.routeName: (ctx) => FiltersPage(setFilters: setFilters, filters: _filters)
         });
   }

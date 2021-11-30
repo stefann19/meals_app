@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:max_guides/models/meal.dart';
 import 'package:max_guides/pages/categories_page.dart';
 import 'package:max_guides/pages/favorites_page.dart';
 import 'package:max_guides/widgets/main_drawer.dart';
 class TabsPage extends StatefulWidget {
-  const TabsPage({Key? key}) : super(key: key);
+  final List<Meal> favoriteMeals;
+
+  const TabsPage({Key? key, required this.favoriteMeals}) : super(key: key);
 
   @override
   _TabsPageState createState() => _TabsPageState();
@@ -11,12 +14,17 @@ class TabsPage extends StatefulWidget {
 
 class _TabsPageState extends State<TabsPage> {
 
-  final List<Map<String,dynamic>> pages = [
-    {'title':'Categories', 'page':CategoriesPage()},
-    {'title':'Favorites', 'page':FavoritesPage()},
-
-  ];
+  List<Map<String,dynamic>> pages = [];
   int _selectedPageIndex = 0;
+
+  @override
+  void initState(){
+    pages = [
+      {'title':'Categories', 'page':CategoriesPage()},
+      {'title':'Favorites', 'page':FavoritesPage(favoriteMeals: widget.favoriteMeals)},
+    ];
+    super.initState();
+  }
 
   void _selectPage(int index){
     setState(() {

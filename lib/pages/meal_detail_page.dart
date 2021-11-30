@@ -3,8 +3,9 @@ import 'package:max_guides/models/dummy_data.dart';
 import 'package:max_guides/models/meal.dart';
 
 class MealDetailPage extends StatelessWidget {
-  const MealDetailPage({Key? key}) : super(key: key);
-
+  const MealDetailPage({Key? key, required this.toggleFavorite, required this.isMealFavorite}) : super(key: key);
+  final Function toggleFavorite;
+  final Function isMealFavorite;
   static const String routeName= '/meal-detail';
 
 
@@ -35,7 +36,9 @@ class MealDetailPage extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Text(meal.title),),
+      appBar: AppBar(
+        title: Text(meal.title),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -80,9 +83,11 @@ class MealDetailPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.delete),
+        child: Icon(
+            isMealFavorite(meal) ? Icons.star : Icons.star_border,
+        ),
         onPressed: (){
-          Navigator.of(context).pop(meal.id);
+          toggleFavorite(meal);
         },
       ),
     );

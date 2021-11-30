@@ -38,7 +38,7 @@ class _CategoryMealsPageState extends State<CategoryMealsPage> {
     return Scaffold(
       appBar: AppBar(title: Text(categoryTitle),),
       body: ListView.builder(itemBuilder: (ctx,index){
-        return MealItem(meal: displayedMeals[index], removeMeal: _removeMeal,);
+        return MealItem(meal: displayedMeals[index],);
       },itemCount: displayedMeals.length,),
     );
   }

@@ -6,14 +6,13 @@ import 'package:max_guides/models/meal.dart';
 import 'package:max_guides/pages/meal_detail_page.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem({Key? key, required this.meal, required this.removeMeal}) : super(key: key);
+  const MealItem({Key? key, required this.meal}) : super(key: key);
   final Meal meal;
-  final Function removeMeal;
   void selectMeal(BuildContext context) {
     Navigator.of(context).pushNamed(MealDetailPage.routeName, arguments: meal)
         .then((value) => {
           if(value != null){
-            removeMeal(value)
+            //removeMeal(value)
           }
     });
   }
