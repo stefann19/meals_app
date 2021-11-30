@@ -5,8 +5,8 @@ import 'package:max_guides/widgets/meal_item.dart';
 import '../models/dummy_data.dart';
 class CategoryMealsPage extends StatefulWidget {
   static const String routeName = "/category-meals";
-  const CategoryMealsPage({Key? key}) : super(key: key);
-
+  const CategoryMealsPage( {Key? key, required this.availableMeals}) : super(key: key);
+  final List<Meal> availableMeals;
   @override
   State<CategoryMealsPage> createState() => _CategoryMealsPageState();
 }
@@ -27,7 +27,7 @@ class _CategoryMealsPageState extends State<CategoryMealsPage> {
       final routeArgs = (ModalRoute.of(context)?.settings.arguments ?? {'category':DUMMY_CATEGORIES.first}) as Map<String,Object>;
       final CategoryModel category = routeArgs['category'] as CategoryModel ;
       categoryTitle = category.title;
-      displayedMeals = DUMMY_MEALS.where((m) => m.categories.contains(category.id)).toList();
+      displayedMeals = widget.availableMeals.where((m) => m.categories.contains(category.id)).toList();
     }
     _loadedInitData = true;
     super.didChangeDependencies();
