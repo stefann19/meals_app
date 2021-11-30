@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:max_guides/pages/categories_page.dart';
 import 'package:max_guides/pages/favorites_page.dart';
-
 class TabsPage extends StatefulWidget {
   const TabsPage({Key? key}) : super(key: key);
 
@@ -10,27 +9,49 @@ class TabsPage extends StatefulWidget {
 }
 
 class _TabsPageState extends State<TabsPage> {
+
+  final List<Map<String,dynamic>> pages = [
+    {'title':'Categories', 'page':CategoriesPage()},
+    {'title':'Favorites', 'page':FavoritesPage()},
+
+  ];
+  int _selectedPageIndex = 0;
+
+  void _selectPage(int index){
+    setState(() {
+      _selectedPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      child: Scaffold(
-        appBar: AppBar(
-            title:Text('Meals'),
-            bottom: TabBar(
-              tabs: [
-                Tab(icon:Icon(Icons.category), text:'Categories'),
-                Tab(icon:Icon(Icons.star),text:'Favorites')
-              ],
-            )
-        ),
-        body: TabBarView(
-          children: [
-            CategoriesPage(),
-            FavoritesPage()
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title:Text(pages[_selectedPageIndex]['title']),
       ),
-      length: 2,
+      drawer: Drawer(
+        child: Text('The drawer'),
+      ),
+      body: pages[_selectedPageIndex]['page'],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _selectPage,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Theme.of(context).accentColor,
+        currentIndex: _selectedPageIndex,
+        type: BottomNavigationBarType.shifting,
+        items: [
+          BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              icon: Icon(Icons.category),
+              label:'Categories'
+          ),
+          BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).primaryColor,
+              icon: Icon(Icons.star),
+              label:'Favorites'
+          )
+        ],
+      ),
     );
   }
 }
