@@ -7,7 +7,7 @@ class CategoryMealsPage extends StatelessWidget {
   const CategoryMealsPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final routeArgs = ModalRoute.of(context)!.settings.arguments as Map<String,Object>;
+    final routeArgs = (ModalRoute.of(context)?.settings.arguments ?? {'category':DUMMY_CATEGORIES.first}) as Map<String,Object>;
     final CategoryModel category = routeArgs['category'] as CategoryModel ;
     final mealsForCurrentCategory = DUMMY_MEALS.where((m) => m.categories.contains(category.id)).toList();
     return Scaffold(
