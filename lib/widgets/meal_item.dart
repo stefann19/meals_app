@@ -1,7 +1,4 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:max_guides/models/dummy_data.dart';
 import 'package:max_guides/models/meal.dart';
 import 'package:max_guides/pages/meal_detail_page.dart';
 
